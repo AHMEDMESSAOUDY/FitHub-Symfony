@@ -1,0 +1,74 @@
+.card-img-top {
+    object-fit: cover;
+    height: 400px;
+  }
+  
+  .btn-outline-primary:hover {
+    background-color: #007bff !important;
+    border-color: #007bff !important;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+  }
+  
+  .comment-form {
+    margin-top: 40px;
+  }
+  
+  .comment-form textarea {
+    height: 150px;
+  }
+  
+  .comment-form .btn {
+    margin-top: 10px;
+  }
+  
+  .similar-articles {
+    margin-top: 40px;
+  }
+  
+  .similar-articles .list-group-item {
+    border-radius: 0;
+  }
+  
+  .similar-articles .list-group-item:hover {
+    background-color: #f0f0f0;
+  }
+  .comment-section {
+    margin-top: 20px;
+  }
+  
+  .comment-section .card {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  
+  .comment-section .card-body {
+    padding: 20px;
+  }
+  
+  .comment-section .card-title {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .comment-section .card-text {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+  
+  .comment-section .alert-info {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 0;
+  }
+  

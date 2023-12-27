@@ -1,0 +1,18 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}{{ event.nomEvent }} {% endblock %}
+
+{% block body %}
+<div style="width: 70%; margin: 0 auto; border: 1px solid #ccc; padding: 20px;">
+    {% if event.image %}
+        <img src="{{ asset('uploads/events/' ~ event.image) }}" style="max-width:auto; height: 300px; margin-top: 5%;">
+    {% endif %}
+    <h1 style="font-size: 32px; margin-bottom: 10px;">{{ event.nomEvent }}</h1>
+    <p style="font-size: 16px; margin-bottom: 10px;">{{ event.description }}</p>
+    <p style="font-size: 14px; margin-bottom: 10px; color: black;">Location: {{ event.location }}</p>
+    <p style="font-size: 14px; margin-bottom: 10px; color: black;">Type: {{ event.type }}</p>
+    <p style="font-size: 14px; margin-bottom: 10px; color: black;">Date: {{ event.date|date('Y-m-d H:i:s') }}</p>
+                        <a href="{{ path('event_book', {id: event.id}) }}" class="btn btn-info">Book</a>
+
+</div>
+{% endblock %}

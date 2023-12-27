@@ -1,0 +1,52 @@
+
+{% block body %}
+ <center>
+   
+       <div style="margin-top:60px; padding:20px; width:800px; height:fit-content; 
+       border-radius:60px; background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAQY4bYsk2PqScUkMXweLajrxFEBWt6qXPng&usqp=CAU'); background-size: cover; box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);
+-webkit-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);-moz-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);" class="container">
+
+       {{form_start(form,{'attr':{'novalidate':'novalidate'}} )}}   
+         
+       <label style="color:white">Choose your consultation :</label>    
+        <div class="form-group">
+            {{ form_widget(form.consultation, {'attr': {'class': 'form-control','style':'background-color: black;color:white'}}) }}
+            {% if form_errors(form.consultation)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.consultation) }}
+            </div>
+            {% endif %}
+        </div>
+        <label style="color:white">Add your description :</label> 
+        <div style="margin-top:-30px" class="form-group">
+            {{ form_widget(form.descriptionFiche, {'attr': {'class': 'form-control'}}) }}
+            {% if form_errors(form.descriptionFiche)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.descriptionFiche) }}
+            </div>
+             {% endif %}
+        </div>
+         <label style="color:white">Add your fiche name :</label> 
+        <div style="margin-top:-30px" class="form-group">
+            {{ form_widget(form.nomFiche, {'attr': {'class': 'form-control'}}) }}
+            {% if form_errors(form.nomFiche)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.nomFiche) }}
+            </div>
+             {% endif %}
+        </div>
+         <label style="color:white">Choose the category of your fiche  :</label> 
+        <div style="margin-top:-30px" class="form-group">
+            {{ form_widget(form.category, {'attr': {'class': 'form-control','style':'background-color: black;color:white'}}) }}
+            {% if form_errors(form.category)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.category) }}
+            </div>
+             {% endif %}
+        </div>
+        
+        <button class="btn btn-primary" style="background-color:#FAC031; border:none">{{button_label|default('Save')}}</button>
+        {{ form_end(form) }}
+
+  </center>
+{% endblock %}

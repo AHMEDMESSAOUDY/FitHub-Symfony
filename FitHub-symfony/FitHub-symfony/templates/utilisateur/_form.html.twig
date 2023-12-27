@@ -1,0 +1,129 @@
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <br>
+
+
+    {{form_start(form,{'attr':{'novalidate':'novalidate'}} )}}
+      
+        <div class="form-group">
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre nom'}}) }}
+            {% if form_errors(form.nom)is not empty %}    
+            <div class="alert alert-danger">
+            {{ form_errors(form.nom) }}
+            </div>
+            {% endif %}
+        </div>
+       
+        <div class="form-group">
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre prenom'}}) }}
+            {% if form_errors(form.prenom)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.prenom) }}
+            </div>
+             {% endif %}
+        </div>
+         <div class="form-group">
+       
+            {{ form_widget(form.date_de_naissance, {'attr': {'class': 'form-control', 'placeholder': 'Merci de choisir une date'}}) }}
+            {% if form_errors(form.date_de_naissance)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.date_de_naissance) }}
+            
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group" >
+            {{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre numero de telephone '}}) }}
+            {% if form_errors(form.telephone)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.telephone) }}
+            
+            </div>
+            {% endif %}
+        </div>
+       
+        
+        <div class="form-group">
+            {{ form_widget(form.adresse, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre adresse'}}) }}
+            {% if form_errors(form.adresse)is not empty %} 
+            <div class="alert alert-danger">
+            {{ form_errors(form.adresse) }}
+            
+            </div>
+            {% endif %}
+        </div>
+        
+
+        <div class="form-group">
+       
+            {{ form_widget(form.genre, {'attr': {'class': 'form-control', 'placeholder': 'Merci de choisir le genre'}}) }}
+            {% if form_errors(form.genre)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.genre) }}
+            
+            </div>
+            {% endif %}
+        </div>
+       
+         <div class="form-group">
+            {{ form_widget(form.roles, {'attr': {'class': 'form-control', 'placeholder': 'Merci de choisir le role'}}) }}
+            {% if form_errors(form.roles)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.roles) }}
+            </div>
+            {% endif %}
+        </div>
+ 
+        <div class="form-group">
+            {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre email'}}) }}
+            {% if form_errors(form.email)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.email) }}
+            
+            </div>
+            {% endif %}
+
+            
+        </div>
+        <div class="form-group">
+        
+            {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre mot de passe'}}) }}
+            {% if form_errors(form.password)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.password) }}
+            
+            </div>
+            {% endif %}
+        </div>
+       
+       
+        
+       
+        
+       <button class="btn btn-primary" style=" border:none">{{button_label|default('Save')}}</button> 
+       <div align="right">
+				
+                 <a href="{{ path('app_utilisateur_index') }}" ><svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" style="color:black" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/> </svg>
+					
+        </div>
+        
+
+    {{ form_end(form) }}
+ 
+        
+    
+</div>
+
+
+
+
+{% endblock %}

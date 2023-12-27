@@ -1,0 +1,49 @@
+{% extends 'baseBack.html.twig' %}
+{% block title %}
+<title>Categorie index</title>
+{% endblock %}
+
+
+{% block body %}
+<body>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <h1>Categorie index</h1>
+
+    <table class="table" >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>NomCategorie</th>
+                <th>DescriptionCategory</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+                <td>{{ categorie.id }}</td>
+                <td>{{ categorie.nomCategorie }}</td>
+                <td>{{ categorie.descriptionCategory }}</td>
+                <td>
+                    <a href="{{ path('app_categorie_show', {'id': categorie.id}) }}"class="material-icons">
+visibility
+</a>
+                    <a href="{{ path('app_categorie_edit', {'id': categorie.id}) }}"class="material-icons">
+edit
+</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_categorie_new') }}"class="material-icons">
+add
+</a>
+    </body>
+{% endblock %}

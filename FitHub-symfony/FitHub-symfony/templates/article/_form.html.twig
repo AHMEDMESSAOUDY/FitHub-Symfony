@@ -1,0 +1,49 @@
+{#{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}#}
+
+
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}}) }}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+<div class="form.group">
+    {{ form_label(form.titreArticle,"Titre du l'article") }}
+     {{ form_widget(form.titreArticle,{'attr':{'class':'form-control'}}) }}
+    {% if  form_errors(form.titreArticle) is not empty and form.titreArticle.vars.value|length < 3  and form.titreArticle.vars.value|length >100 %} 
+    <div class="alert alert-danger">
+    {{ form_errors(form) }}
+  </div>
+  {% endif %}
+  </div>
+<div class="form.group">
+    {{ form_label(form.descriptionArticle,"le contenu de l'article") }}
+     {{ form_widget(form.descriptionArticle,{'attr':{'class':'form-control'}}) }}
+    {% if  form_errors(form.descriptionArticle) is not empty %}
+    <div class="alert alert-danger">
+    {{ form_errors(form) }}
+  </div>
+   {% endif %}
+   </div>
+  <div class ="col-lg-7">
+  {{ form_label(form.imageArticle,"l'image de l'article") }}
+      {{ form_row(form.imageArticle) }}
+</div>
+    <div class="form.group">
+    {{ form_label(form.categorie,"categorie de l'article") }}
+     {{ form_widget(form.categorie,{'attr':{'class':'form-control'}}) }}
+    {% if  form_errors(form.categorie) is not empty %}
+    <div class="alert alert-danger">
+    {{ form_errors(form) }}
+  </div>
+   {% endif %}
+   </div>
+   
+   
+    <div class="form.group">
+   
+    {{ form_widget(form) }}
+    
+   </div>
+   <button class="btn btn-primary">{{ button_label|default('Save') }}</button>
+
+{{ form_end(form) }}

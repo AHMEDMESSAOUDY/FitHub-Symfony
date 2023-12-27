@@ -1,0 +1,138 @@
+{% extends 'baseBack.html.twig' %}
+{% block body %}
+
+
+
+   
+
+
+{% block schedule %}
+    <div class="dropdown">
+		<button class="dropbtn" style="margin-left:800px;">Sort by name 
+		<svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+		</button>
+		<div class="dropdown-content" style="position: absolute;background-color: rgba(207, 196, 196, 0.21);min-width: 180px;margin-left:800px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;">
+		<a href="{{ path('app_consultation_backtriAindex') }}">[A-Z]</a>
+		<a href="{{ path('app_consultation_backtriDindex') }}">[Z-A]</a>
+		</div>
+	</div>
+
+    <div class="dropdown">
+		<button class="dropbtn" style="margin-left:950px;">Sort by date 
+		<svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+		</button>
+		<div class="dropdown-content" style="position: absolute;background-color: rgba(207, 196, 196, 0.21);min-width: 180px;margin-left:950px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;">
+		<a href="{{ path('app_consultation_backtridAindex') }}">Recent</a>
+		<a href="{{ path('app_consultation_backtridDindex') }}">Old</a>
+		{# <a href="#">Book with a coach</a> #}
+		</div>
+	</div>
+     <!-- SCHEDULE -->
+     <section class="schedule section"  id="schedule">
+     {% for consultation in consultations %}
+<div class="business2" style="display: inline; align-items: center;  min-height: fit-content;  ">
+
+        <div class="front" style=" background-color: rgba(255, 255, 255, 0.5);  padding: 10px; width: 1100px; border:6px solid #4B49AC; height: 280px;  margin: 20px;  border-radius: 25px;  overflow: hidden;position: relative;">
+            <div class="red" style=" height: 28%; border-radius:25px 25px 0px 0px; background-color: #4B49AC;">
+            </div>
+            <div class="avatar" style="position: absolute;width: 25%;left: 7%;top: 25px;transform: translate(-50%);">
+                <div class="img" style="background-color: transparent; padding: 10px;box-sizing: border-box;  height: 10%;  display: flex;  align-items: center;justify-content: center;">
+
+                    <img style=" margin-left:20px;width: 80px;border: 6px solid rgba(255, 255, 255, 0.5);border-radius: 50%;" 
+                    src="https://cdn-icons-png.flaticon.com/512/1039/1039373.png"  alt="">
+                    
+                <div><p style="margin-right:-80px;margin-left:30px;margin-top:-50px; text-transform: uppercase;font-weight: 900;color: black; ">{{ consultation.nom }}</p>
+                </div><div><p style="margin-right:-80px; margin-left:30px;margin-top:-25px; padding-top:10px;color: #fff;">{{ consultation.dateConsultation ? consultation.dateConsultation|date('Y-m-d') : '' }}</p>
+                </div></div>
+            </div>
+            <div class="infos" style="position: absolute;bottom: 9%;left: 5%;">
+                <div>
+                <svg style="width: 30px;height: 30px; margin-right: 10px;margin-bottom:10px;  background-color:#4B49AC;  padding: 8px;  border-radius: 7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16"> 
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/> 
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/> </svg>  
+                </div>
+                <div >
+                        <p style="font-size: 0.8rem; margin-left: 45px ; margin-right: 15px ;margin-top:-30px; font-weight: 500; color: black;">
+                        {{ consultation.heureConsultation ? consultation.heureConsultation|date('H:i') : '' }}</p>
+                    </div>
+                <div>
+                <svg style="width: 30px;  height: 30px;  margin-right: 10px; margin-bottom:10px; background-color: #4B49AC;  padding: 8px;  border-radius: 7px;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" > <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z" fill="currentColor" /> 
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z" fill="currentColor" /> </svg>
+                    <div>
+                        <p style="font-size: 0.8rem; margin-left: 45px ; margin-right: 15px ;margin-top:-30px; font-weight: 500;color: black;">
+                        {{ consultation.typeConsultation }}</p>
+                </div>
+                <div>
+                <svg style="width: 30px;  height: 30px;  margin-right: 10px; margin-bottom:10px; background-color: #4B49AC;  padding: 8px;  border-radius: 7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/> </svg>
+                    <div>
+                        <p style="font-size: 0.8rem;  margin-left: 45px ; margin-right: 15px ;margin-top:-30px;  font-weight: 500;color: black;">
+                        {{ consultation.utilisateur }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+      {% endfor %}
+     </section>
+{% endblock %}
+{% endblock %}
+{% block style %}
+<style>
+
+
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: black;
+  background-color: inherit;
+  font-family: inherit;
+}
+
+.dropdown:hover .dropbtn {
+  color: #4B49AC;
+  border-color: #4B49AC
+} 
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #4B49AC;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  background-color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #4B49AC;
+  color:white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+{% endblock %}

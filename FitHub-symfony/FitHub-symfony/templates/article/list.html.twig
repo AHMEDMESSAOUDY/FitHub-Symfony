@@ -1,0 +1,42 @@
+
+{% extends 'baseFront.html.twig' %}
+
+
+{% block title %}
+New Article
+{% endblock %}
+{% block body %}
+    
+
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>TitreArticle</th>
+                <th>DescriptionArticle</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+               
+                <td>{{ article.titreArticle }}</td>
+                
+                <td>{{ article.descriptionArticle| split({"\n"})}}</td>
+                
+                <td>{{ article.imageArticle }}</td>
+                <td>
+                   
+                  
+                </td>
+            </tr>
+        {% else %}
+          
+        {% endfor %}
+        </tbody>
+    </table>
+
+    
+{% endblock %}
+

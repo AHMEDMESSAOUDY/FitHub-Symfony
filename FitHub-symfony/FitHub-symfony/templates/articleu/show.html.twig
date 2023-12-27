@@ -1,0 +1,86 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}
+
+    Article
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/article.css') }}" />
+{% endblock %}
+
+{% block body %}
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <a href="{{ path('app_categorieu_show', {'id': articles.categorie.id}) }}"  class="material-icons">
+arrow_back_ios
+
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="card mb-3">
+                    <img src="{{ asset('uploads/articles/' ~ articles.imageArticle) }}" class="card-img-top" alt="Article image">
+                    <div class="card-body">
+                        <h1 class="card-title">{{ articles.titreArticle }}</h1>
+                        <p class="card-text">{{ articles.descriptionArticle }}</p>
+                        <p class="card-text"><small class="text-muted">{{ articles.dateArticle ? articles.dateArticle|date('Y-m-d') : '' }}</small></p>
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <a href="https://www.facebook.com/sharer/sharer.php?u={{ absolute_url(path('app_articleu_show', {id: articles.id})) }}" >
+                                  
+                                    <span class="material-icons">
+share
+</span>
+                                </a>
+                            </div>
+    <script src="https://kit.fontawesome.com/45e38e596f.js" crossorigin="anonymous"></script>
+
+                            <div class="article-actions">
+    <form method="POST" action="{{ path('app_articleu_like', {'id': articles.id}) }}">
+        <button type="submit" name="like" class="btn btn-success"><i class="fas fa-thumbs-up"></i> ({{ articles.like_article }})</button>
+    </form>
+    </div>
+    <div class="article-actions">
+    <form method="POST" action="{{ path('app_articleu_dislike', {'id': articles.id}) }}">
+        <button type="submit" name="dislike" class="btn btn-danger"><i class="fas fa-thumbs-down"></i> ({{ articles.dislike_article }})</button>
+    </form>
+</div>
+
+                            <div>
+                                <a href="{{ path('app_commentaireu_new', {'id': articles.id}) }}" >
+                                    <span class="material-icons">
+insert_comment
+</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="mb-3">Commentaires : ({{ articles.CommentairesCount }})</h2>
+<div class="comment-section">
+    {% if comments|length > 0 %}
+        {% for comment in comments %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4 class="card-title">{{ comment.nickname }}</h4>
+                    <p class="card-text">{{ comment.descriptionCommentaire }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="alert alert-info" role="alert">
+            Il n'y a pas encore de commentaires pour cet article.
+        </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}
+

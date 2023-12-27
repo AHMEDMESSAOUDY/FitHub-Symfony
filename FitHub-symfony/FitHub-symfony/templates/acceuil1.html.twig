@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+     <title>{% block title %}FitHub | Home Page{% endblock %}</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+     <meta name="description" content="">
+     <meta name="keywords" content="">
+     <meta name="author" content="">
+     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    {% block stylesheets %}
+     <link rel="stylesheet" href="{{asset('./FrontOffice/css/bootstrap.min.css')}}">
+     <link rel="stylesheet" href="{{asset('./FrontOffice/css/font-awesome.min.css')}}">
+     <link rel="stylesheet" href="{{asset('./FrontOffice/css/aos.css')}}">
+
+     <!-- MAIN CSS -->
+     <link rel="stylesheet" href="{{asset('./FrontOffice/css/tooplate-gymso-style.css')}}">
+     {% endblock %}
+<!--
+Tooplate 2119 Gymso Fitness
+https://www.tooplate.com/view/2119-gymso-fitness
+-->
+</head>
+<body data-spy="scroll" data-target="#navbarNav" data-offset="50">
+
+    <!-- MENU BAR -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+             
+
+            <a class="navbar-brand" href="index.html">FitHub</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link smoothScroll">Home</a>
+                    </li>
+
+                    
+
+
+                    <li class="nav-item">
+                        <div class="dropdown">
+							<button class="dropbtn">Schedules 
+							<i class="fa fa-caret-down"></i>
+							</button>
+							<div class="dropdown-content">
+							<a href="{{ path('app_consultation_index') }}">Book with a nutritionist</a>
+							<a href="#">Book with a coach</a>
+							</div>
+						</div>
+                    </li>
+                      <li class="nav-item">
+                        <a href="{{path('app_categorieu_index')}}" class="nav-link smoothScroll">Blog</a>
+                    </li>
+                      <li class="nav-item">
+                <a href="{{ path('app_event') }}" class="nav-link smoothScroll" >Events </a> 
+				</li>
+
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-link smoothScroll">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                <a href="{{ path('app_fiche_new') }}" class="nav-link smoothScroll" >Fiche</a>
+                    </li>
+                </ul>
+                <ul>
+                <li>
+               
+
+				</ul>
+                
+                  
+				
+
+
+                <ul class="social-icon ml-lg-3">
+                    <li><a href="{{ path('app_profile_show') }}" class="fa fa-user-circle" style="font-size:25px;color:#FAC031"></i></a></li>
+                    <li><a href="#" class="fa fa-facebook" style="font-size:22px"></a></li>
+                    <li><a href="#" class="fa fa-instagram" style="font-size:22px"></a></li>
+                    <li><a href="{{ path('app_front') }}" class="fa fa-sign-out" style="font-size:22px"></a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+
+     <!-- HERO -->
+     <section class="hero d-flex flex-column justify-content-center align-items-center" id="home">
+
+            <div class="bg-overlay"></div>
+
+               <div class="container">
+                    <div class="row">
+
+                         <div class="col-lg-8 col-md-10 mx-auto col-12">
+                              <div class="hero-text mt-5 text-center">
+
+                                    <h6 data-aos="fade-up" data-aos-delay="300">new way to build a healthy lifestyle!</h6>
+
+                                    <h1 class="text-white" data-aos="fade-up" data-aos-delay="500">Upgrade your body at fitHub</h1>
+
+                              </div>
+                         </div>
+
+                    </div>
+               </div>
+     </section>
+
+
+{% block body %}
+
+{% endblock %}
+
+
+{% block contact %}
+     <!-- CONTACT -->
+     <section class="contact section" id="contact">
+          <div class="container">
+               <div class="row">
+
+                    <div class="ml-auto col-lg-5 col-md-6 col-12">
+                        <h2 class="mb-4 pb-2" data-aos="fade-up" data-aos-delay="200">Feel free to ask anything</h2>
+
+                        <form action="#" method="post" class="contact-form webform" data-aos="fade-up" data-aos-delay="400" role="form">
+                            <input type="text" class="form-control" name="cf-name" placeholder="Name">
+
+                            <input type="email" class="form-control" name="cf-email" placeholder="Email">
+
+                            <textarea class="form-control" rows="5" name="cf-message" placeholder="Message"></textarea>
+
+                            <button type="submit" class="form-control" id="submit-button" name="submit">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="mx-auto mt-4 mt-lg-0 mt-md-0 col-lg-5 col-md-6 col-12">
+                        <h2 class="mb-4" data-aos="fade-up" data-aos-delay="600">Where you can <span>find us</span></h2>
+
+                        <p data-aos="fade-up" data-aos-delay="800"><i class="fa fa-map-marker mr-1"></i> 120-240 Rio de Janeiro - State of Rio de Janeiro, Brazil</p>
+                        <div class="google-map" data-aos="fade-up" data-aos-delay="900">
+                           <iframe src="https://maps.google.com/maps?q=Av.+Lúcio+Costa,+Rio+de+Janeiro+-+RJ,+Brazil&t=&z=13&ie=UTF8&iwloc=&output=embed" width="1920" height="250" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                    
+               </div>
+          </div>
+     </section>
+
+    {% endblock %}
+
+
+    {% block footer %}
+    
+     <!-- FOOTER -->
+     <footer class="site-footer">
+          <div class="container">
+               <div class="row">
+
+                    <div class="ml-auto col-lg-4 col-md-5">
+                        <p class="copyright-text">Copyright &copy; 2020 Gymso Fitness Co.
+                        
+                        <br>Design: <a href="https://www.tooplate.com">Tooplate</a></p>
+                    </div>
+
+                    <div class="d-flex justify-content-center mx-auto col-lg-5 col-md-7 col-12">
+                        <p class="mr-4">
+                            <i class="fa fa-envelope-o mr-1"></i>
+                            <a href="#">hello@company.co</a>
+                        </p>
+
+                        <p><i class="fa fa-phone mr-1"></i> 010-020-0840</p>
+                    </div>
+                    
+               </div>
+          </div>
+     </footer>
+{% endblock %}
+
+{% block modal %}
+    <!-- Modal -->
+    <div class="modal fade" id="membershipForm" tabindex="-1" role="dialog" aria-labelledby="membershipFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h2 class="modal-title" id="membershipFormLabel">Membership Form</h2>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form class="membership-form webform" role="form">
+                <input type="text" class="form-control" name="cf-name" placeholder="John Doe">
+
+                <input type="email" class="form-control" name="cf-email" placeholder="Johndoe@gmail.com">
+
+                <input type="tel" class="form-control" name="cf-phone" placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+
+                <textarea class="form-control" rows="3" name="cf-message" placeholder="Additional Message"></textarea>
+
+                <button type="submit" class="form-control" id="submit-button" name="submit">Submit Button</button>
+
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="signup-agree">
+                    <label class="custom-control-label text-small text-muted" for="signup-agree">I agree to the <a href="#">Terms &amp;Conditions</a>
+                    </label>
+                </div>
+            </form>
+          </div>
+
+          <div class="modal-footer"></div>
+
+        </div>
+      </div>
+    </div>
+    {% endblock %}
+
+    {% block js %}
+     <!-- SCRIPTS -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{asset('/FrontOffice/js/jquery.form.js')}}"></script>
+     <script src="{{asset('./FrontOffice/js/jquery.min.js')}}"></script>
+     <script src="{{asset('./FrontOffice/js/bootstrap.min.js')}}"></script>
+     <script src="{{asset('./FrontOffice/js/aos.js')}}"></script>
+     <script src="{{asset('./FrontOffice/js/smoothscroll.js')}}"></script>
+     <script src="{{asset('./FrontOffice/js/custom.js')}}"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.3.0/jquery.form.min.js"></script>
+
+     {% endblock %}
+
+</body>
+</html>

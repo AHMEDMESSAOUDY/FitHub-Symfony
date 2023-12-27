@@ -1,0 +1,51 @@
+ {% extends 'baseBack.html.twig' %}
+{% block title %}
+<title>Commentaire</title>
+ {% endblock %}
+{% block body %}
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+
+<canvas id="myChart" style="width: 1000px; height: 600px"></canvas>
+
+<script>
+var xValues = [];
+var yValues = [];
+
+{% for article in articles %}
+    xValues.push("{{ article.titreArticle }}");
+    yValues.push({{ article.getCommentairesCount() }});
+{% endfor %}
+
+var barColors = [];
+for (var i = 0; i < xValues.length; i++) {
+    // Génère une couleur aléatoire pour chaque barre
+    barColors.push(`rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.7)`);
+}
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Nombre de commentaires par article"
+    },
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  }
+});
+</script>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Reset your password{% endblock %}
+
+{% block body %}
+  <center>
+<div style="margin-top:10px; padding:20px; width:800px; height:fit-content; 
+       border-radius:10px; background-size: 100% ; box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);
+-webkit-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);-moz-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);" class="container">
+
+<label style="black;  font-weight: bold; font-size: 20px;"  >Reset your password</label> 
+    {{ form_start(resetForm) }}
+    {{ form_row(resetForm.plainPassword) }}
+   
+        <button class="btn btn-primary"style="background-color:#FAC031; border:none">Reset password</button>
+   </div>
+                </div>
+            </div>
+           
+        </div>
+    </section>
+    {{ form_end(resetForm) }}
+    
+     </form>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'baseBack.html.twig' %}
+{% block titre %}
+Edit Article
+{% endblock %}
+
+{% block body %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+       <a href="{{ path('app_article_index') }}"class="material-icons"> arrow_back_ios</a>
+    <h1>Edit Article</h1>
+
+    {{ include('article/_form.html.twig', {'button_label': 'Update'}) }}
+    
+
+   
+
+    {{ include('article/_delete_form.html.twig') }}
+{% endblock %}

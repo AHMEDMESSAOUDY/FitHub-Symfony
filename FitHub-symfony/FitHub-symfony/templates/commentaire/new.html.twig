@@ -1,0 +1,17 @@
+{% extends 'baseBack.html.twig' %}
+
+
+{% block title %}
+<title>New Commentaire</title>
+{% endblock %}
+
+{% block body %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+          <a href="{{ path('app_commentaire_index') }}" class="material-icons"> arrow_back_ios</a>
+
+    <h1>Create new Commentaire</h1>
+
+    {{ include('commentaire/_form.html.twig') }}
+
+{% endblock %}

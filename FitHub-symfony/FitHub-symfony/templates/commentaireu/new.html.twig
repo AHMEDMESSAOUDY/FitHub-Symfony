@@ -1,0 +1,23 @@
+{% extends 'baseFront.html.twig' %}
+{% block title %}
+<title>New Commentaire</title>
+
+ {% endblock %}
+
+
+
+
+{% block body %}
+<div class="container">
+            <div class="row">
+                <div class="col-lg-8 p-0 m-auto">
+<h2>Publier un commentaire</h2>
+
+ <div class="leave-comment">
+    {{ include('commentaireu/_form.html.twig') }}
+    </div>
+    </div>
+    </div>
+    
+   
+{% endblock %}

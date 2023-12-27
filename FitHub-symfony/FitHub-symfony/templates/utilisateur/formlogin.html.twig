@@ -1,0 +1,75 @@
+{% extends 'baseFront.html.twig' %}
+{% block title %}{% endblock %}
+{% block css %}
+<style>
+    
+    .form-style {
+        padding: 50px;
+    }
+    .form-group {
+        margin-bottom: 30px;
+        width: 50%;
+    }
+    .form-control {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+    }
+    ::placeholder {
+        color: #000000!important;
+    }
+    .logo {
+        weight:100;
+
+    }
+    #role {
+         margin-bottom: 30px;
+        width: 50%;
+
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+<center>
+<div style="margin-top:10px; padding:20px; width:800px; height:fit-content; 
+       border-radius:10px; background-image: url('../images/image.jpg'); background-size: 100% ; box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);
+-webkit-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);-moz-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);" class="container">
+
+<label style="color:#FAC031;  font-weight: bold; font-size: 20px;"  >Soyez bienvenus</label> 
+
+
+    
+       <div class="container">
+       {{form_start(formlogin,{'attr':{'novalidate':'novalidate'}} )}}
+       <div class="form-group">
+            {{ form_widget(formlogin.email, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre email'}}) }}
+            {% if form_errors(formlogin.email)is not empty %}
+            <div class="alert alert-danger" >
+            {{ form_errors(formlogin.email) }}
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form_widget(formlogin.password, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre mot de passe'}}) }}
+            {% if form_errors(formlogin.password)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(formlogin.password) }}
+            {% endif %}
+            </div>
+        </div>
+
+       
+        
+         <button class="btn btn-primary" style="background-color:#FAC031; border:none">{{button_label|default('log in')}}</button>
+         <div class="custom-control custom-checkbox">
+					<a href="#">Forgot Password?</a>
+					
+                </div>
+
+
+        {{ form_end(formlogin) }}
+</div>
+</center>
+
+{% endblock %}

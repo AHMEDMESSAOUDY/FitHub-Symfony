@@ -1,0 +1,67 @@
+
+{% extends 'baseBack.html.twig' %}
+{% block title %}
+Article
+
+
+{% endblock %}
+
+
+{% block body %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<a href="{{ path('app_article_index') }}"class="material-icons"> arrow_back_ios</a>
+    <h1>Article</h1>
+
+
+
+   <table class="table" align="center" >
+   
+        <tbody>
+            <tr>
+            
+                <th>Id</th>
+                <td>{{ article.id }}</td>
+            </tr>
+            <tr>
+                <th>TitreArticle</th>
+                <td>{{ article.titreArticle }}</td>
+            </tr>
+            <br>
+            <tr>
+                <th>DescriptionArticle</th>
+                <br>
+                <td class="scrollable-cell">{{ article.descriptionArticle }}</td>
+                 </br>            
+            </tr>
+
+            </br>
+            <br>
+            <tr>
+                <th>DateArticle</th>
+                <td>{{ article.dateArticle ? article.dateArticle|date('Y-m-d') : '' }}</td>
+            </tr>
+            </br>
+            <tr>
+                <th>ImageArticle</th>
+                <td>
+<img class="img-fluid" src="{{asset('uploads/articles/' ~ article.imageArticle)  }}"  >
+</td>
+
+                
+            </tr>
+        </tbody>
+                       <a href="{{ path('app_article_edit', {'id': article.id}) }}"class="material-icons">edit</a>
+
+    </table>
+
+
+
+    
+
+ 
+    {{ include('article/_delete_form.html.twig') }}
+
+   
+{% endblock %}
+

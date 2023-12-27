@@ -1,0 +1,32 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block body %}
+ <h1 style="color: grey;">Add a New Ticket</h1>
+
+       {{form_start(form,{'attr':{'novalidate':'novalidate'}} )}}
+    <div class="form-group">
+      {{ form_label(form.disponibilite, 'Disponibilité', {'label_attr': {'class': 'form-control-label'}}) }}
+         {% if form_errors(form.disponibilite) %}
+            <div class="alert alert-danger">{{ form_errors(form.disponibilite) }}</div>
+        {% endif %}
+
+      {{ form_widget(form.disponibilite, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group">
+      {{ form_label(form.prix, 'Prix', {'label_attr': {'class': 'form-control-label'}}) }}
+       {% if form_errors(form.prix) %}
+            <div class="alert alert-danger">{{ form_errors(form.prix) }}</div>
+        {% endif %}
+      {{ form_widget(form.prix, {'attr': {'class': 'form-control'}}) }}
+    </div>
+    <div class="form-group">
+      {{ form_label(form.nombreMax, 'Nombre Maximum', {'label_attr': {'class': 'form-control-label'}}) }}
+       {% if form_errors(form.nombreMax) %}
+            <div class="alert alert-danger">{{ form_errors(form.nombreMax) }}</div>
+        {% endif %}
+      {{ form_widget(form.nombreMax, {'attr': {'class': 'form-control'}}) }}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+  {{ form_end(form) }}
+{% endblock %}

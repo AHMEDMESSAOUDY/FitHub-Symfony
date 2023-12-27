@@ -1,0 +1,60 @@
+{% extends 'acceuil1.html.twig' %}
+
+{% block body %}
+{% block schedule %}
+     <!-- SCHEDULE -->
+     <section class="schedule section"  id="schedule">
+    <h1 style="text-align:center;color:white; margin-bottom:60px;">Fiche</h1>
+    <a style="margin-left:1300px; font-size:20px;border-radius:20px; padding:5px; color:black; background-color:#FAC031;" href="{{ path('app_consultation_index') }}"><svg xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="currentColor" class="bi bi-arrow-left-square" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 2a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2zM0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm11.5 5.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+</svg> back to list</a>
+   
+<div class="business2" style="display: flex; flex-wrap: wrap;  align-items: center;  min-height: fit-content;  justify-content: center;  background-color: #131417;">
+
+        <div class="front" style=" background-color: #393939;  padding: 10px; width: 300px;  height: 400px;  margin: 20px;  border-radius: 25px;  overflow: hidden;position: relative;">
+            <div class="red" style=" height: 25%; border-radius:25px 25px 0px 0px; background-color: #FAC031;">
+              <form method="post" action="{{ path('app_fiche_delete', {'id': fiche.id}) }}" 
+                onsubmit="return confirm('Are you sure you want to delete this item?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ fiche.id) }}">
+                <button class="btn" style="border:none; width:20px;margin-left:250px;">
+                <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16"> <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/> 
+                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/> </svg>
+                </button>
+            </form>
+             <a href="{{ path('app_fiche_edit', {'id': fiche.id}) }}">
+            <svg style=" margin-left:220px; margin-top:-62px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pen-fill" viewBox="0 0 16 16"> 
+            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z"/> </svg>
+            </a>
+            </div>
+            <div class="avatar" style="position: absolute;width: 25%;left: 50%;top: 60px;transform: translate(-50%);text-align: center;">
+                <div class="img" style="background-color: transparent; padding: 10px;box-sizing: border-box;  height: 10%;  display: flex;  align-items: center;justify-content: center;">
+
+                    <img style=" width: 80px;border: 6px solid var(--dark);border-radius: 50%;" 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6gQx4YKb_xAuiXBJABiBdaj2nzmKt468GGqsAaug30vEAva-Y2DfrV9iJ-3JlHx-QC9k&usqp=CAU"  alt="">
+                </div>
+                <p style="margin: 0; text-transform: uppercase;font-weight: 900;color: #eee; ">{{ fiche.nomFiche }}</p>
+                <p style=" margin: 0;color: #eee;">{{ fiche.category }}</p>
+            </div>
+            <div class="infos" style="position: absolute;bottom: 20%;left: 5%;">
+                <div>
+                <svg style="width: 30px;height: 30px; margin-right: 10px;  background-color:#FAC031;  padding: 8px;  border-radius: 7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16"> 
+                <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/> 
+                <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/> </svg>  
+                </div>
+                <div >
+                        <p style="font-size: 0.8rem; margin-left: 45px ; margin-right: 15px ;margin-top:-30px; font-weight: 500; color: #eee;">
+                        {{ fiche.consultation }}</p>
+                    </div>
+                <div>
+                <svg style="width: 30px;  height: 30px;  margin-right: 10px;  background-color: #FAC031;  padding: 8px;  border-radius: 7px;" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" > <path d="M12 16C14.2091 16 16 14.2091 16 12C16 9.79086 14.2091 8 12 8V16Z" fill="currentColor" /> 
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4V8C9.79086 8 8 9.79086 8 12C8 14.2091 9.79086 16 12 16V20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4Z" fill="currentColor" /> </svg>
+                    <div>
+                        <p style="font-size: 0.8rem; margin-left: 45px ; margin-right: 15px ;margin-top:-30px; font-weight: 500;color: #eee;">
+                        {{ fiche.descriptionFiche }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+     </section>
+{% endblock %}
+{% endblock %}

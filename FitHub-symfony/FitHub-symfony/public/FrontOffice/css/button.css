@@ -1,0 +1,35 @@
+.article-actions button[name=like] {
+    font-size: 20px;
+    line-height: 1;
+    padding: 8px 20px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .article-actions button[name=dislike] {
+    font-size: 20px;
+    line-height: 1;
+    padding: 8px 20px;
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .article-actions button[name=like]:before {
+    content: "\1F44D"; /* thumbs up emoji */
+  }
+  
+  .article-actions button[name=dislike]:before {
+    content: "\1F44E"; /* thumbs down emoji */
+  }
+  
+  .article-actions button:before {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  

@@ -1,0 +1,16 @@
+{% extends 'baseBack.html.twig' %}
+{% block title %}
+<title>New Categorie</title>
+{% endblock %}
+
+
+
+{% block body %}
+   
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+          <a href="{{ path('app_categorie_index') }}" class="material-icons"> arrow_back_ios</a>
+ <h1>Create new Categorie</h1>
+    {{ include('categorie/_form.html.twig') }}
+
+{% endblock %}

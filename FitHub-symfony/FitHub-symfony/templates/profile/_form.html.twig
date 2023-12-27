@@ -1,0 +1,101 @@
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <br>
+
+
+    {{form_start(form,{'attr':{'novalidate':'novalidate'}} )}}
+      
+        <div class="form-group">
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre nom'}}) }}
+            {% if form_errors(form.nom)is not empty %}    
+            <div class="alert alert-danger">
+            {{ form_errors(form.nom) }}
+            </div>
+            {% endif %}
+        </div>
+       
+        <div class="form-group">
+            {{ form_widget(form.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre prenom'}}) }}
+            {% if form_errors(form.prenom)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.prenom) }}
+            </div>
+             {% endif %}
+        </div>
+         <div class="form-group">
+       
+            {{ form_widget(form.date_de_naissance, {'attr': {'class': 'form-control', 'placeholder': 'Merci de choisir une date'}}) }}
+            {% if form_errors(form.date_de_naissance)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.date_de_naissance) }}
+            
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group" >
+            {{ form_widget(form.telephone, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre numero de telephone '}}) }}
+            {% if form_errors(form.telephone)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.telephone) }}
+            
+            </div>
+            {% endif %}
+        </div>
+       
+        
+        <div class="form-group">
+            {{ form_widget(form.adresse, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre adresse'}}) }}
+            {% if form_errors(form.adresse)is not empty %} 
+            <div class="alert alert-danger">
+            {{ form_errors(form.adresse) }}
+            
+            </div>
+            {% endif %}
+
+
+        </div>
+
+      
+           
+        
+
+       
+       
+        
+ 
+        
+
+            
+       
+       
+       
+        
+       
+        
+       <button class="btn btn-primary" style=" border:none">{{button_label|default('Save')}}</button> 
+       <div align="right">
+				
+                
+					
+        </div>
+        
+
+    {{ form_end(form) }}
+ 
+        
+    
+</div>
+
+
+
+
+{% endblock %}

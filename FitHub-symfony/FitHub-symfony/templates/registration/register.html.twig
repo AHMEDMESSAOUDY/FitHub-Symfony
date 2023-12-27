@@ -1,0 +1,123 @@
+{% extends 'baseFront.html.twig' %}
+{% block title %}
+<center>
+ 
+</center>
+{% endblock %}
+
+
+{% block body %}
+<center>
+
+<div style="margin-top:10px; padding:20px; width:800px; height:fit-content; 
+       border-radius:10px; background-image: url('../images/image.jpg'); background-size: 100% ; box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);
+-webkit-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);-moz-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);" class="container">
+
+
+
+    <h1></h1>
+
+    {{ form_start(registrationForm,{'attr':{'novalidate':'novalidate'}} )}}
+        
+        <div class="form-group">
+            {{ form_widget(registrationForm.nom, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre nom'}}) }}
+            {% if form_errors(registrationForm.nom)is not empty %}    
+            <div class="alert alert-danger ">
+            {{ form_errors(registrationForm.nom) }}
+            </div>
+            {% endif %}
+        </div>
+       
+        <div class="form-group">
+            {{ form_widget(registrationForm.prenom, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre prenom'}}) }}
+            {% if form_errors(registrationForm.prenom)is not empty %}
+            <div class="alert alert-danger ">
+            {{ form_errors(registrationForm.prenom) }}
+            </div>
+             {% endif %}
+        </div>
+         <div class="form-group">
+       
+            {{ form_widget(registrationForm.date_de_naissance, {'attr': {'class': 'form-control', 'placeholder': 'Merci de choisir une date'}}) }}
+            {% if form_errors(registrationForm.date_de_naissance)is not empty %}
+            <div class="alert alert-danger ">
+            {{ form_errors(registrationForm.date_de_naissance) }}
+            
+            </div>
+            {% endif %}
+        </div>
+        <div class="form-group" >
+            {{ form_widget(registrationForm.telephone, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre numero de telephone '}}) }}
+            {% if form_errors(registrationForm.telephone)is not empty %}
+            <div class="alert alert-danger ">
+            {{ form_errors(registrationForm.telephone) }}
+            
+            </div>
+            {% endif %}
+        </div>
+       
+        
+        <div class="form-group">
+            {{ form_widget(registrationForm.adresse, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre adresse'}}) }}
+            {% if form_errors(registrationForm.adresse)is not empty %} 
+            <div class="alert alert-danger ">
+            {{ form_errors(registrationForm.adresse) }}
+            
+            </div>
+            {% endif %}
+        </div>
+        
+
+        <div class="form-group">
+       
+            {{ form_widget(registrationForm.genre, {'attr': {'class': 'form-control', 'placeholder': 'Merci de choisir le genre'}}) }}
+            {% if form_errors(registrationForm.genre)is not empty %}
+            <div class="alert alert-danger ">
+            {{ form_errors(registrationForm.genre) }}
+            
+            </div>
+            {% endif %}
+        </div>
+        
+ 
+        <div class="form-group">
+            {{ form_widget(registrationForm.email, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre email'}}) }}
+            {% if form_errors(registrationForm.email)is not empty %}
+            <div class="alert alert-danger ">
+            {{ form_errors(registrationForm.email) }}
+            
+            </div>
+            {% endif %}     
+        </div>
+          <div class="form-group">
+         {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'placeholder': 'Merci de taper votre mot de passe'}}) }}
+            {% if form_errors(registrationForm.plainPassword)is not empty %}
+            <div class="alert alert-danger ">
+            {{ form_errors(registrationForm.plainPassword) }}
+            
+            </div>
+            {% endif %}     
+        </div>
+
+      
+      
+        
+
+
+        <button type="submit" class="btn"style="background-color:#FAC031;width:757px; border:none">Register</button>
+    {{ form_end(registrationForm) }}
+
+    </div>
+
+
+</center>
+{% endblock %}      
+    
+
+
+
+
+
+
+
+

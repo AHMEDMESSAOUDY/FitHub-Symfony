@@ -1,0 +1,55 @@
+{% extends 'baseBack.html.twig' %}
+{% block title %}
+<title>Commentaire index</title>
+{% endblock %}
+
+{% block body %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <h1>Commentaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                 
+                <th>nickname</th>
+           
+                <th>email</th>
+            
+                <th>DateCommentaire</th>
+                <th>DescriptionCommentaire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for commentaire in commentaires %}
+            <tr>
+                <td>{{ commentaire.id }}</td>
+                <td>{{ commentaire.nickname }}</td>
+                    <td>{{ commentaire.email_c }}</td>
+
+                <td>{{ commentaire.dateCommentaire ? commentaire.dateCommentaire|date('Y-m-d') : '' }}</td>
+                <td>{{ commentaire.descriptionCommentaire  }}</td>
+                <td>
+                    <a href="{{ path('app_commentaire_show', {'id': commentaire.id}) }}"class="material-icons">
+visibility
+</a>
+                    <a href="{{ path('app_commentaire_edit', {'id': commentaire.id}) }}"class="material-icons">
+edit
+</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+
+    <a href="{{ path('app_commentaire_new') }}"class="material-icons">
+add
+</a>
+{% endblock %}

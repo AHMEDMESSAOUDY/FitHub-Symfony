@@ -1,0 +1,55 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}
+   Categorie
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/categorie.css') }}" />
+{% endblock %}
+
+{% block body %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <a href="{{ path('app_categorieu_index') }}"  class="material-icons">
+arrow_back_ios
+
+                </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4">{{ categorie.nomCategorie }}</h1>
+                <hr class="my-4">
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            {% for article in articles %}
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="card article-card">
+                        <img class="card-img-top" src="{{ asset('uploads/articles/' ~ article.imageArticle) }}" alt="{{ article.titreArticle }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ article.titreArticle }}</h5>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">{{ article.dateArticle ? article.dateArticle|date('d/m/Y') : '' }}</small>
+                                <a href="{{ path('app_articleu_show', {'id': article.id}) }}" class="material-icons">description</a>
+   
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="col-12 text-center">
+                    <p class="lead">Aucun article trouvé.</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12 d-flex justify-content-center">
+                {{ knp_pagination_render(pagination) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,80 @@
+
+
+
+
+
+{% extends 'baseFront.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        </div>
+    {% endif %}
+   
+
+
+
+
+<center>
+<div style="margin-top:10px; padding:20px; width:800px; height:fit-content; 
+       border-radius:10px; background-size: 100% ; box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);
+-webkit-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);-moz-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);" class="container">
+
+<label style="color:#FAC031;  font-weight: bold; font-size: 20px;"  >Soyez bienvenus</label> 
+
+
+
+<label for="inputEmail"></label>
+<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus placeholder="Entrez votre adresse email">
+<label for="inputPassword"></label>
+<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required placeholder="Entrez votre mot de passe">
+
+<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+    {#
+        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+        See https://symfony.com/doc/current/security/remember_me.html
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" name="_remember_me"> Remember me
+            </label>
+        </div>
+    #}
+
+
+
+
+ 
+
+
+
+    <button class="btn btn-primary"  style="background-color:#FAC031; border:none" type="submit">
+        Sign in
+    </button>
+         <div class="custom-control custom-checkbox">
+
+      <a href="{{ path('app_forgot_password_request') }}"  >
+                                      
+                                        <span class="text">Forget Password?</span>
+                                    </a>
+                                      </div>
+            
+                </div>
+                </div>
+            </div>
+           
+        </div>
+
+</form>
+
+
+{% endblock %}

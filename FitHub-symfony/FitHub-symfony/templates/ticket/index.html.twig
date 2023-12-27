@@ -1,0 +1,35 @@
+{% extends 'baseFront.html.twig' %}
+
+{% block body %}
+  <div style="width: 50%; margin: 0 auto;">
+    <h1 style="text-align: center; font-size: 36px;">Book Tickets for {{ event.nomEvent }}</h1>
+ {% if event.image %}
+        <img src="{{ asset('uploads/events/' ~ event.image) }}" style="text-align:center; max-width:auto; height: 300px; margin-top: 5%;">
+    {% endif %}
+    <p style="color:blue; font-size:24px">{{ event.description  }}</p>
+    <p>Location: {{ event.location }}</p>
+    <p>Date: {{ event.date|date('Y-m-d H:i') }}</p>
+    <p>Prix: {{ ticket.prix}} TND</p>
+
+       {{form_start(form,{'attr':{'novalidate':'novalidate'}} )}}
+
+      <div style="display: flex; flex-direction: column; margin-bottom: 20px;">
+        {{ form_row(form.nom, { 'attr': { 'class': 'form-control' } }) }}
+                {{ form_errors(form.nom) }}
+
+      </div>
+
+      <div style="display: flex; flex-direction: column; margin-bottom: 20px;">
+        {{ form_row(form.email, { 'attr': { 'class': 'form-control' } }) }}
+                {{ form_errors(form.email) }}
+
+      </div>
+
+      {{ form_widget(form) }}
+
+
+      <button type="submit" onclick="return confirm('Are you sure you want to book this event?')" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 20px;">Book Ticket</button>
+
+      {{ form_end(form) }}
+  </div>
+{% endblock %}

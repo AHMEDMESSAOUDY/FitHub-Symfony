@@ -1,0 +1,53 @@
+{% extends 'baseBack.html.twig' %}
+
+{% block title %}Edit Event{% endblock %}
+
+{% block body %}
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <br>
+    <h1>Edit Event</h1>
+<section style="margin: 10px;">
+{{ form_start(form,{'attr':{'novalidate':'novalidate'}} )}}
+
+    {{ form_row(form.nomEvent, {'attr': {'style': 'padding: 10px; border: none; border-radius: 5px; margin-bottom: 20px; width: 100%; background-color: #f2f2f2;'}}) }}
+            {% if form_errors(form.nomEvent) %}
+            <div class="alert alert-danger">{{ form_errors(form.nomEvent) }}</div>
+        {% endif %}
+
+    {{ form_row(form.description, {'attr': {'style': 'padding: 10px; border: none; border-radius: 5px; margin-bottom: 20px; width: 100%; background-color: #f2f2f2;'}}) }}
+            {% if form_errors(form.description) %}
+            <div class="alert alert-danger">{{ form_errors(form.description) }}</div>
+        {% endif %}
+
+    {{ form_row(form.date, {'attr': {'style': 'padding: 10px; border: none; border-radius: 5px; margin-bottom: 20px; width: 100%; background-color: #f2f2f2;'}}) }}
+           {% if form_errors(form.date) %}
+            <div class="alert alert-danger">{{ form_errors(form.date) }}</div>
+        {% endif %}
+
+    {{ form_row(form.location, {'attr': {'style': 'padding: 10px; border: none; border-radius: 5px; margin-bottom: 20px; width: 100%; background-color: #f2f2f2;'}}) }}
+           {% if form_errors(form.location) %}
+            <div class="alert alert-danger">{{ form_errors(form.location) }}</div>
+        {% endif %}
+
+    {{ form_row(form.type, {'attr': {'style': 'padding: 10px; border: none; border-radius: 5px; margin-bottom: 20px; width: 100%; background-color: #f2f2f2;'}}) }}
+        {% if form_errors(form.type) %}
+            <div class="alert alert-danger">{{ form_errors(form.type) }}</div>
+        {% endif %}
+
+    {% if event.image %}
+        <img src="{{ asset('uploads/events/' ~ event.image) }}" width="400" style="margin-bottom: 20px;"/>
+    {% endif %}
+
+    {{ form_row(form.image, {'attr': {'style': 'margin-bottom: 20px;'}}) }}
+    
+    <button type="submit" style="padding: 10px; border: none; border-radius: 5px; background-color: #1abc9c; color: white; cursor: pointer;">Save changes</button>
+{{ form_end(form) }}
+
+</section>
+<a href="{{ path('app_event_admin') }}" style="display: inline; margin-top: 20px; text-decoration: none; color: #1abc9c; font-weight: bold;">Back to Event List</a>
+</div>
+</div>
+</div>
+{% endblock %}

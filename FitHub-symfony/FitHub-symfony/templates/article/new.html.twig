@@ -1,0 +1,14 @@
+{% extends 'baseBack.html.twig' %}
+{% block title %}
+New Article
+{% endblock %}
+{% block body %}
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+          <a href="{{ path('app_article_index') }}"class="material-icons"> arrow_back_ios</a>
+
+    <h1>CREER UN NOUVEAU ARTICLE   </h1>
+
+    {{ include('article/_form.html.twig') }}
+
+{% endblock %}

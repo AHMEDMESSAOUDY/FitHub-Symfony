@@ -1,0 +1,63 @@
+{% block body %}
+ <center>
+   
+      <div style="margin-top:50px; padding:30px; width:800px; height:fit-content; 
+       border-radius:60px;background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAQY4bYsk2PqScUkMXweLajrxFEBWt6qXPng&usqp=CAU'); background-size: cover; box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);
+-webkit-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);-moz-box-shadow: -1px -1px 34px 3px rgba(0,0,0,0.63);" class="container">
+
+       {{form_start(form,{'attr':{'novalidate':'novalidate'}} )}}
+
+       <label style="margin-left:-300px; color:white">Choose your appointment name :</label>
+        <div style="margin-top:-30px" class="form-group">
+            {# {{ form_label(form.dateConsultation,"Choose your appointment time :")}} #}
+            {{ form_widget(form.nom, {'attr': {'class': 'form-control','style':'border:none; margin-top:-40px; margin-left:160px; width:200px'}}) }}
+            {% if form_errors(form.nom)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.nom) }}
+            </div>
+             {% endif %}
+        </div>
+        <label style="margin-left:-300px ;color:white">Choose your appointment date :</label> 
+        <div class="form-group">
+            {# {{ form_label(form.dateConsultation,"Choose your appointment date :")}} #}
+            {{ form_widget(form.dateConsultation, {'attr': {'class': 'form-control','style':'border:none; margin-top:-40px; margin-left:70px; background-color: #11ffee00;'}}) }}
+            {% if form_errors(form.dateConsultation)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.dateConsultation) }}
+            </div>
+            {% endif %}
+        </div>
+        <label style="margin-left:-300px; color:white">Choose your appointment time :</label>
+        <div style="margin-top:-30px" class="form-group">
+            {# {{ form_label(form.dateConsultation,"Choose your appointment time :")}} #}
+            {{ form_widget(form.heureConsultation, {'attr': {'class': 'form-control','style':'border:none; margin-top:-40px; margin-left:33px; background-color: #11ffee00;'}}) }}
+            {% if form_errors(form.heureConsultation)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.heureConsultation) }}
+            </div>
+             {% endif %}
+        </div>
+        <label style="margin-left:-350px; color:white">Choose your nutritionist :</label>
+        <div class="form-group">
+            {{ form_widget(form.utilisateur, {'attr': {'class': 'form-control','style':'background-color: black;color:white'}}) }}
+            {% if form_errors(form.utilisateur)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.utilisateur) }}
+            </div>
+            {% endif %}
+        </div>
+        <label style="margin-left:-250px; color:white">Choose the type of your appointment :</label>
+        <div style="color:white" class="form-group">
+            {{ form_widget(form.typeConsultation, {'attr': {'class': 'form-control','style':'background-color: black;color:white'}}) }}
+            {% if form_errors(form.typeConsultation)is not empty %}
+            <div class="alert alert-danger">
+            {{ form_errors(form.typeConsultation) }}
+            </div>
+            {% endif %}
+        </div>
+        
+        <button class="btn btn-primary" style="background-color:#FAC031; border:none; border-radius:10px;font-size:20px;">{{button_label|default('Save')}}</button>
+        {{ form_end(form) }}
+</div>
+  </center>
+{% endblock %}

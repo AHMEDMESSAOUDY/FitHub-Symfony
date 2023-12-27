@@ -1,0 +1,48 @@
+{% extends 'baseFront.html.twig' %}
+{% block title %}
+
+  Article index
+ {% endblock %}
+
+
+
+{% block body %}
+    <h1>Article index</h1>
+<div class="blog-text">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TitreArticle</th>
+                <th>DescriptionArticle</th>
+                <th>DateArticle</th>
+                <th>ImageArticle</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for article in articles %}
+            <tr>
+                <td>{{ article.id }}</td>
+                <td>{{ article.titreArticle }}</td>
+                <td>{{ article.descriptionArticle }}</td>
+                <td>{{ article.dateArticle ? article.dateArticle|date('Y-m-d') : '' }}</td>
+<img class="img-fluid" src="{{asset('uploads/articles/' ~ article.imageArticle)  }}"  >
+                <td>
+                    <a href="{{ path('app_articleu_show', {'id': article.id}) }}"class="myButton">consulter l'article</a>
+                    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+
+   
+{% endblock %}

@@ -1,0 +1,116 @@
+{% extends 'baseBack.html.twig' %}
+{% block body %}
+{% block schedule %}
+
+<div class="dropdown">
+		<button class="dropbtn" style="margin-left:1050px;">Sort by name 
+		<svg width="24" height="24" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+		</button>
+		<div class="dropdown-content" style="position: absolute;background-color: rgba(207, 196, 196, 0.21);min-width: 180px;margin-left:1050px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;">
+		<a href="{{ path('app_consultation_backtriAindex') }}">[A-Z]</a>
+		<a href="{{ path('app_consultation_backtriDindex') }}">[Z-A]</a>
+		</div>
+	</div>
+
+     <!-- SCHEDULE -->
+     <section class="schedule section"  id="schedule">
+     {% for fiche in fiches %}
+<div class="business2" style="display: inline; align-items: center;  min-height: fit-content;  ">
+
+        <div class="front" style=" background-color: rgba(255, 255, 255, 0.5);  padding: 10px; width: 1100px; border:6px solid #4B49AC; height: 280px;  margin: 20px;  border-radius: 25px;  overflow: hidden;position: relative;">
+            <div class="red" style=" height: 28%; border-radius:25px 25px 0px 0px; background-color: #4B49AC;">
+            </div>
+            <div class="avatar" style="position: absolute;width: 25%;left: 7%;top: 25px;transform: translate(-50%);">
+                <div class="img" style="background-color: transparent; padding: 10px;box-sizing: border-box;  height: 10%;  display: flex;  align-items: center;justify-content: center;">
+
+                    <img style=" margin-left:20px;width: 80px;border: 6px solid rgba(255, 255, 255, 0.5);border-radius: 50%;" 
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2EQ5UNcRQ1T2O1keKa8jdxOM9IUcxHPaX6A&usqp=CAU"  alt="">
+                    
+                <div><p style="margin-right:-80px;margin-left:30px;margin-top:-50px; text-transform: uppercase;font-weight: 900;color: black; ">{{ fiche.nomFiche }}</p>
+                </div><div><p style="margin-right:-80px; margin-left:30px;margin-top:-25px; padding-top:10px;color: #fff;">{{ fiche.category }}</p>
+                </div></div>
+            </div>
+            <div class="infos" style="position: absolute;bottom: 9%;left: 5%;">
+                <div>
+                <svg  style="width: 30px;height: 30px; margin-right: 10px; margin-bottom:10px;   background-color:#4B49AC;  padding: 8px;  border-radius: 7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar2-check-fill" viewBox="0 0 16 16"> 
+                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-2.6 5.854a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z"/> </svg> 
+                </div>
+                <div >
+                        <p style="font-size: 0.8rem; margin-left: 45px ; margin-right: 15px ;margin-top:-30px; font-weight: 500; color: black;">
+                        {{ fiche.consultation }}</p>
+                    </div>
+                <div>
+                <svg style="width: 30px;  height: 30px;  margin-right: 10px; margin-bottom:10px;  background-color: #4B49AC;  padding: 8px;  border-radius: 7px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right-text-fill" viewBox="0 0 16 16">
+                 <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h9.586a1 1 0 0 1 .707.293l2.853 2.853a.5.5 0 0 0 .854-.353V2zM3.5 3h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1 0-1zm0 2.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1z"/> </svg>
+                <div>
+                        <p style="font-size: 0.8rem; margin-left: 45px ; margin-right: 15px ;margin-top:-30px; font-weight: 500;color: black;">
+                        {{ fiche.descriptionFiche }}</p>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+      {% endfor %}
+     </section>
+{% endblock %}
+{% endblock %}
+{% block style %}
+<style>
+
+.dropdown {
+  text-align: right;
+
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: black;
+  margin-top: -5px;
+  background-color: inherit;
+  font-family: inherit;
+}
+
+.dropdown:hover .dropbtn {
+  color: #4B49AC;
+  border-color: #4B49AC
+} 
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #4B49AC;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  background-color: white;
+}
+
+.dropdown-content a:hover {
+  background-color: #4B49AC;
+  color:white;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+</style>
+{% endblock %}
